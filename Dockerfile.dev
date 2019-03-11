@@ -1,0 +1,19 @@
+#Specify base image
+FROM node:11.10-alpine
+
+#make or find a folder to copy project
+WORKDIR /app
+
+#Copy package.json of your project to container
+COPY package.json .
+COPY package-lock.json .
+
+#Install some dependencies
+RUN npm install
+
+#Copy remaining files(from you project) to container
+COPY . .
+
+#Default command
+
+CMD ["npm", "run","start"]
