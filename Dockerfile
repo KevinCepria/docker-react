@@ -19,5 +19,7 @@ RUN npm run build
 
 #PHASE2
 FROM nginx
+#EXPOSE PORT 80 "FOR AWS ONLY"
+EXPOSE 80 
 COPY --from=builder /app/build /usr/share/nginx/html
 #NGINX START IS THE DEFAULT CMD FOR NGINX CONTAINER
